@@ -1,0 +1,36 @@
+@echo off
+:: *******************************************************************************
+::	Author: Sebastian Munoz
+::	Course: OS1
+::	Professor: Michael Robinson
+::	Program: This is program 3 which consist of two parts, shell and windows batch
+::  we learn how to use its commands, by using a method that divides two numbers.
+::  Due Date: 03/30/22
+::	Certification: I hereby certify that this woek is my own and none of it is the work of any other person
+:: *******************************************************************************
+:MAIN
+echo %USERNAME% %date% %time% >> results.txt
+
+set /p FirstNumber= Please enter a first number: 
+IF %FirstNumber%==1 GOTO END
+
+:SECONDNUM
+set /p SecondNumber= "Please enter a second number: "
+IF %SecondNumber%==2 GOTO END
+
+IF %SecondNumber%==0 GOTO ZERO
+GOTO CALC
+
+:ZERO
+
+IF %SecondNumber%==0 echo YOU CANNOT DIVIDE BY 0
+GOTO SECONDNUM
+
+
+:CALC
+
+set /A Result=%FirstNumber% / %SecondNumber%
+echo %FirstNumber% divided by %SecondNumber% = %Result%
+echo %FirstNumber% divided by %SecondNumber% = %Result% >> results.txt
+GOTO MAIN
+:END
